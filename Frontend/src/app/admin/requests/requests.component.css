@@ -1,0 +1,79 @@
+.Admin-Requests{
+    width: 100%;
+    height:calc(100vh - 300px);
+    border-radius: 0.25rem;
+    overflow: auto;
+}
+.Admin-Requests table{
+    width: 100%;
+}
+.Admin-Requests th,.Admin-Requests td{
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.25rem;
+}
+.Admin-Requests th{
+    background-color: #31353D;
+    color: rgba(255,255,255,0.9);
+    font-size: 0.85rem;
+}
+.Admin-Requests td{
+    color: rgba(0,0,0,0.9);
+    background-color: rgba(255,255,255,0.85);
+    font-size: 0.85rem;
+}
+#Admin-Button-td{
+    padding: 0;
+    text-align: center;
+}
+.Admin-Button{
+    background-color: #E35F21;
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.25rem;
+    color: rgba(0,0,0,0.85);
+    cursor: pointer;
+}
+.Admin-Button:hover{
+    background-color: rgba(227,95,33,0.75);
+}
+.Description{
+    position: absolute;
+    top:calc(50% - 200px);
+    left:calc(50% - 300px);
+    width:600px;
+    height: 400px;
+    background-color: rgba(255,255,255,1);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-style: solid;
+    border-color: rgba(0,0,0,0.25);
+    border-width: 0.25px;
+    border-radius: 0.25rem;
+}
+.Desc{
+    display: flex;
+    justify-content: space-between;
+}
+.Desc-Image,.Desc-Detail{
+    width:45%;
+    height: 270px;
+    padding:1rem;
+    display: flex;
+    justify-content: center;
+}
+.Desc-Image img{
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+.Button-Desc{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1rem;
+}
+.Button-Desc-b{
+    padding:0.5rem 1.25rem;
+    margin: 0.5rem 0.25rem;
+    width:80px;
+    text-align: center;
+}

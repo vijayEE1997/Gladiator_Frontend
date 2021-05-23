@@ -1,0 +1,63 @@
+<div class="Add-Retailer">
+    <form [formGroup]="addProductForm" (ngSubmit)="addPF()">
+        <!-- <div class = "validate" *ngIf = "addProductForm.controls.pCategory.errors && (addProductForm.controls.pCategory.touched ||addProductForm.controls.pCategory.dirty)">galat</div>
+       
+        
+        <div class = "validate" *ngIf = "addProductForm.controls.subCategory.errors && (addProductForm.controls.subCategory.touched ||addProductForm.controls.subCategory.dirty)">galat</div>
+        <label for="subCategory">Sub Category</label>
+        <select name="subCategory" id="subCategory" formControlName="subCategory">
+            <option *ngFor="let p of pCategories;let i=index" [selected]="i==0" value={{p.Category}}>{{p.pCategory}}</option>
+        </select> -->
+        <table class="table-1">
+            <tr>
+                <td><label for="#">Category</label></td>
+                <td>
+                    <select name="Category" id="#">
+                        <option selected="selected" value="Mobile">Mobile</option>
+                        <option value="Electronics">Electronics</option>
+                        <option value="Appliances">Appliances</option>
+                    </select>
+                </td>
+                <td><label>Sub Category</label></td>
+                <td><input type="text" formControlName="pSubCategory"></td>
+            </tr>
+            <tr>
+                <td><label>Brand</label></td>
+                <td>
+                    <input type="text" formControlName="pBrand">
+                </td>
+                <td><label>Model</label></td>
+                <td><input type="text" formControlName="pName"></td>
+            </tr>
+            <tr>
+                <td><label>Price</label></td>
+                <td>
+                    <input type="number" formControlName="pPrice">
+                </td>
+                <td><label>Stock</label></td>
+                <td><input type="number" formControlName="pStock"></td>
+            </tr>
+            <tr>
+                <td><label><input type="file" (change)="selectFile1($event)" formControlName="pImage1"></label></td>
+                <td>
+                    <button type="button" class="Button upload" [disabled]="!selectedFiles1" (click)="upload1()"><span style="margin-right: 0.5rem;"><i class="fa fa-upload" aria-hidden="true"></i></span>Image 1</button>
+                </td>
+                <td><label><input type="file" (change)="selectFile2($event)" formControlName="pImage2"></label></td>
+                <td>
+                    <button type="button" class="Button upload" [disabled]="!selectedFiles2" (click)="upload2()"><span style="margin-right: 0.5rem;"><i class="fa fa-upload" aria-hidden="true"></i></span>Image 2</button>
+                </td>
+            </tr>
+    </table>
+    <table class="table-2">
+        <tr>
+            <td><label>Description</label></td>
+        </tr>
+        <tr>            
+            <td><textarea formControlName="pDesc" rows="4" cols="50"></textarea></td>
+        </tr>
+    </table>
+    <p *ngIf="error" style="color: green;font-size: 0.95rem;font-weight: bolder;text-align: center;"></p>
+    <p *ngIf="!error" style="color: green;font-size: 0.95rem;font-weight: bolder;text-align: center;">Successfully Added!!!</p>
+    <button type="submit" class="Button"  [ngClass]="{'addProductD':addProductForm.invalid}">Add Product</button>
+    </form>
+</div>

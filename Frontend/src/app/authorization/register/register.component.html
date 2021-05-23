@@ -1,0 +1,58 @@
+<div class="Login-Page">
+    <div class="Login-Left Login-LR">
+      <h2>Register</h2>
+      <p>Get access to your Orders, Wishlist, Cart and enjoy Premium experience</p>
+      <img src="../assets/Images/LOGO.png">
+    </div>
+    <div class="Login-Right Login-LR">
+      <form  [formGroup]="registerForm" class="Form-group" (ngSubmit)="register()">
+        <p *ngIf="already" style="font-size:0.65rem;color:red;text-align: center;">*Email already Exists</p>
+        <p *ngIf="success" style="color: green;font-size: 0.75rem;text-align: center;font-weight: bolder;">*Successfully Registered!!!</p>
+        <div class="form">  
+            <input type="text" formControlName="uName" id="username"  autocomplete="off" class="form-control"/>
+            <label for="username" class="label-name">
+                <div class = "validate" *ngIf = "registerForm.controls.uName.errors && (registerForm.controls.uName.touched ||registerForm.controls.uName.dirty)">
+                    <p *ngIf = "registerForm.controls.uName.errors?.required">*Name Required</p>
+                </div>
+                <span class="label-content">Name</span>
+            </label>
+        </div>
+        <div class="form">
+            <input type="email" formControlName="uEmail" id="email"  class="form-control" />
+            <label for="email" class="label-name">
+                <div class = "validate" *ngIf = "registerForm.controls.uEmail.errors && (registerForm.controls.uEmail.touched ||registerForm.controls.uEmail.dirty)">
+                    <p *ngIf = "registerForm.controls.uEmail.errors?.required">*Email Id Required</p>
+                    <p *ngIf = "registerForm.controls.uEmail.errors?.pattern">*Please Enter a Valid Email ID</p>
+                </div>
+                <span class="label-content">Email</span>
+            </label>
+        </div>
+        <div class="form">
+            <input type="password" formControlName="uPassword" id="password"  class="form-control"/>
+            <label for="password" class="label-name" >
+                <div class = "validate" *ngIf = "registerForm.controls.uPassword.errors && (registerForm.controls.uPassword.touched ||registerForm.controls.uPassword.dirty)">
+                    <p *ngIf = "registerForm.controls.uPassword.errors?.required">*Password Required</p>
+                    <p *ngIf = "registerForm.controls.uPassword.errors?.pattern">*Please Enter a Valid Password</p>
+                </div>
+                <span class="label-content">Password</span>
+            </label>
+        </div>
+        <div class="form">
+            <input type="text" formControlName="uMobile" id="mobile" class="form-control"  />
+            <label for="mobile" class="label-name">
+                <div class = "validate" *ngIf = "registerForm.controls.uMobile.errors && (registerForm.controls.uMobile.touched ||registerForm.controls.uMobile.dirty)">
+                    <p *ngIf = "registerForm.controls.uMobile.errors?.required">*Mobile No. Required</p>
+                    <p *ngIf = "registerForm.controls.uMobile.errors?.pattern">*Please Enter a Valid Mobile No.</p>
+                </div> 
+                <span class="label-content">Mobile</span>
+            </label>
+        </div>
+        <div class="form">
+            <button class="Login-Page-LButton" [ngClass]="{'Invalid':registerForm.invalid}">Register</button>&nbsp; &nbsp;
+            <button  class="Login-Page-LButton" (click)="login()">
+                  Login
+              </button>
+        </div>
+    </form>
+    </div>
+  </div>

@@ -1,0 +1,47 @@
+<div class="Admin-Retailer">
+    <div class="Admin-Retailers">
+        <form [formGroup]="addRetailerForm">
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Mobile</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr style="height:1rem;display: flex;position: absolute;width: 100%;">
+                    <span *ngIf="already" class="validate">*Already Exixts</span>
+                    <span class = "validate" *ngIf = "addRetailerForm.controls.rName.errors && (addRetailerForm.controls.rName.touched ||addRetailerForm.controls.rName.dirty)">
+                        <p *ngIf = "addRetailerForm.controls.rName.errors?.required">*Retailer Name Required</p>
+                    </span>
+                    <span class = "validate" *ngIf = "addRetailerForm.controls.rEmail.errors && (addRetailerForm.controls.rEmail.touched ||addRetailerForm.controls.rEmail.dirty)">
+                        <p *ngIf = "addRetailerForm.controls.rEmail.errors?.required">*Email Id Required</p>
+                        <p *ngIf = "addRetailerForm.controls.rEmail.errors?.pattern">*Please Enter a Valid Email ID</p>
+                    </span>
+                    <span class = "validate" *ngIf = "addRetailerForm.controls.rMobile.errors && (addRetailerForm.controls.rMobile.touched ||addRetailerForm.controls.rMobile.dirty)">
+                        <p *ngIf = "addRetailerForm.controls.rMobile.errors?.required">*Mobile No. Required</p>
+                        <p *ngIf = "addRetailerForm.controls.rMobile.errors?.pattern">*Please Enter a Valid Mobile No.</p>
+                    </span>    
+                </tr> 
+                <tr style="height:1rem;"></tr>
+                <tr>
+                    <!-- <td style="background-color: #31353D;color: rgba(255,255,255,0.9);font-size: 0.85rem;font-weight: bolder;text-align: center;">ADD</td> -->
+                    <td><input class="Input" type="text" formControlName="rName" placeholder="Retailer's Name"></td>
+                    <td><input class="Input" type="email" formControlName="rEmail" placeholder="Email"></td>
+                    <td><input class="Input" type="text" formControlName="rMobile"placeholder="Mobile No."></td>
+                    <td id="Admin-Button-td"><div [ngClass]="{'Invalid':addRetailerForm.invalid}" class="Admin-Button" (click)="addRetailerF()" style="background-color:#31353D;color: beige;"><span style="margin-left: 0.5rem;"><i class="fa fa-user-plus" aria-hidden="true"></i></span></div></td>                
+                </tr>                
+                <tr style="height:1rem;"></tr>
+                <tr *ngFor="let p of retailers">
+                    <td>{{p.rName}}</td>
+                    <td>{{p.rEmail}}</td>
+                    <td>{{p.rMobile}}</td>
+                    <td id="Admin-Button-td"><div class="Admin-Button" (click)="removeRetailerF(p)"><span style="margin-left: 0.5rem;"><i class="fa fa-user-times" aria-hidden="true"></i></span></div></td>
+                </tr>
+            </tbody>
+        </table>
+    </form>
+    </div>
+</div>
