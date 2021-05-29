@@ -39,12 +39,15 @@ const app = express();
 //         console.log(colors.magenta(`Angular environment.prod.ts file generated correctly at ${targetPath2} \n`));
 //     }
 //  });
+
+console.log("------------------------>")
 // Serve only the static files form the dist directory
 app.use(express.static('./dist/Frontend'));
 
 app.get('/*', (req, res) =>
     res.sendFile('index.html', {root: 'dist/Frontend/'}),
 );
+
 
 // Start the app by listening on the default Heroku port
 app.listen(process.env.PORT || 4200);
