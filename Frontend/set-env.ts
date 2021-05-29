@@ -1,20 +1,37 @@
 import { writeFile } from 'fs';
 // Configure Angular `environment.ts` file path
-const targetPath = './src/environments/environment.ts';
+const targetPath1 = './src/environments/environment.ts';
+const targetPath2 = './src/environments/environment.prod.ts';
 // Load node modules
 const colors = require('colors');
 require('dotenv').config()
 // `environment.ts` file structure
-const envConfigFile = `export const environment = {
-   apiBaseUrl: '${process.env.KEY}'
+const envConfigFile1 = `export const environment = {
+   apiBaseUrl: '${process.env.KEY}',
+   production: false,
+   BASE_URL:'https://gladiator-online-shopping-back.herokuapp.com'
 };
 `;
-console.log(colors.magenta('The file `environment.ts` will be written with the following content: \n'));
-console.log(colors.grey(envConfigFile));
-writeFile(targetPath, envConfigFile, function (err) {
+const envConfigFile2 = `export const environment = {
+    apiBaseUrl: '${process.env.KEY}',
+    production: true,
+    BASE_URL:'https://gladiator-online-shopping-back.herokuapp.com'
+ };
+ `;
+console.log(colors.magenta('The file `environment.ts` and `environment.prod.ts` will be written with the following content: \n'));
+console.log(colors.grey(envConfigFile1));
+console.log(colors.grey(envConfigFile2));
+writeFile(targetPath1, envConfigFile1, function (err) {
    if (err) {
        throw console.error(err);
    } else {
-       console.log(colors.magenta(`Angular environment.ts file generated correctly at ${targetPath} \n`));
+       console.log(colors.magenta(`Angular environment.ts file generated correctly at ${targetPath1} \n`));
    }
 });
+writeFile(targetPath2, envConfigFile2, function (err) {
+    if (err) {
+        throw console.error(err);
+    } else {
+        console.log(colors.magenta(`Angular environment.prod.ts file generated correctly at ${targetPath2} \n`));
+    }
+ });
