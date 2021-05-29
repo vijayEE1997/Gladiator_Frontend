@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SessionService } from 'src/app/Services_X/session.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'home',
@@ -12,6 +13,8 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.sessionService.checkSession()
+    console.log(process.env.KKK);
   }
 
+  
 }
