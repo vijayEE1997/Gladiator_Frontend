@@ -8,7 +8,7 @@
     "test": "npm run config && ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "heroku-postbuild": "ng build --prod"
+    "heroku-postbuild": "npm run config && ng build --prod"
   },
   "private": true,
   "browser": {
