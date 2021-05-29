@@ -3,13 +3,12 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "config": "ts-node set-env.ts",
-    "start": "npm run config && node server.js",
-    "build": "npm run config && ng build",
-    "test": "npm run config && ng test",
+    "start": "node server.js",
+    "build": "ng build",
+    "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "heroku-postbuild": "npm run config && ng build --prod"
+    "heroku-postbuild": "ng build --prod"
   },
   "private": true,
   "browser": {
@@ -29,6 +28,7 @@
     "@types/crypto-js": "^3.1.47",
     "aws-sdk": "^2.766.0",
     "crypto-js": "^4.0.0",
+    "colors": "^1.1.2",
     "dotenv": "^10.0.0",
     "express": "^4.17.1",
     "json-server": "^0.16.1",
