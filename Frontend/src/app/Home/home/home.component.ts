@@ -13,7 +13,7 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.sessionService.checkSession()
-    console.log(process.env.KKK);
+    console.log(environment.apiBaseUrl);
   }
 
   

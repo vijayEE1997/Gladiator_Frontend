@@ -3,12 +3,13 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "node server.js",
-    "build": "ng build",
-    "test": "ng test",
+    "config": "ts-node set-env.ts",
+    "start": "npm run config && node server.js",
+    "build": "npm run config && ng build",
+    "test": "npm run config && ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "heroku-postbuild": "ng build --prod"
+    "heroku-postbuild": "npm run config && ng build --prod"
   },
   "private": true,
   "browser": {
